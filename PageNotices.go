@@ -1,4 +1,4 @@
-package page
+package webpage
 
 // [PageNotices]
 type PageNotices []*PageNotice

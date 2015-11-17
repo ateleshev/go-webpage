@@ -1,4 +1,4 @@
-package page
+package webpage
 
 const (
 	ERROR_WARNING = "warning"

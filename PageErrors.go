@@ -1,4 +1,4 @@
-package page
+package webpage
 
 // [PageErrors]
 type PageErrors []*PageError

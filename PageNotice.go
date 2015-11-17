@@ -1,4 +1,4 @@
-package entity
+package webpage
 
 const (
 	NOTICE_SUCCESS = "success"
@@ -6,6 +6,6 @@ const (
 )
 
 // [PageNotice]
-type PageNotice struct {
+type PageNotice struct { // {{{
 	PageNotification
-}
+} // }}}

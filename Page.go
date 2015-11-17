@@ -1,4 +1,4 @@
-package page
+package webpage
 
 type Page struct {
 	Name        string
