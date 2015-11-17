@@ -12,7 +12,7 @@ func (this *PageErrors) Append(pageError *PageError) { // {{{
 } // }}}
 
 func NewPageErrors() *PageErrors { // {{{
-	pageErrors = make(PageErrors, 0)
+	pageErrors := make(PageErrors, 0)
 
 	return &pageErrors
 } // }}}

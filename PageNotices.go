@@ -12,7 +12,7 @@ func (this *PageNotices) Append(pageNotice *PageNotice) { // {{{
 } // }}}
 
 func NewPageNotices() *PageNotices { // {{{
-	pageNotices = make(PageNotices, 0)
+	pageNotices := make(PageNotices, 0)
 
 	return &pageNotices
 } // }}}

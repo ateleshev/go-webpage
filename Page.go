@@ -1,22 +1,44 @@
 package webpage
 
 type Page struct {
-	Name        string
-	Description string
+	Name string
+	// Parent page
+	Parent *Page
 
-	parent  *Page
+	// Page data
+	data    *PageData
 	errors  *PageErrors
 	notices *PageNotices
 }
 
-// [Parent]
+// [New]
 
-func (this *Page) Parent() *Page { // {{{
-	return this.Parent
+func NewPage(name string, parent *Page) *Page { // {{{
+	page := &Page{Name: name, Parent: parent}
+
+	return page
 } // }}}
+
+func NewRootPage(name string) *Page { // {{{
+	page := &Page{Name: name}
+
+	return page
+} // }}}
+
+// [Parent]
 
 func (this *Page) HasParent() bool { // {{{
 	return this.Parent != nil
+} // }}}
+
+// [Data]
+
+func (this *Page) Data() *PageData { // {{{
+	if this.data == nil {
+		this.data = NewPageData()
+	}
+
+	return this.data
 } // }}}
 
 // [Errors]
