@@ -7,17 +7,20 @@ import (
 )
 
 const (
+	DEFAULT_TEMPLATE_NAME = "default"
+
 	// Extension
-	EXT = ".tmpl"
+	TEMPLATE_EXT = ".tmpl"
 
 	// Files
-	ALL    = "*" + EXT
-	LAYOUT = "layout" + EXT
+	TEMPLATE_ALL    = "*" + TEMPLATE_EXT
+	TEMPLATE_LAYOUT = "layout" + TEMPLATE_EXT
 
 	// Directory
-	DIR_MAIN    = "template"
-	DIR_VIEW    = "view"
-	DIR_PARTIAL = "partial"
+	TEMPLATE_DIR_MAIN    = "template"
+	TEMPLATE_DIR_VIEW    = "view"
+	TEMPLATE_DIR_PARTIAL = "partial"
+	TEMPLATE_DIR_WEB     = "web"
 )
 
 type PageTemplate struct {
@@ -35,11 +38,11 @@ func (this *PageTemplate) init() (*template.Template, error) { // {{{
 	var err error
 	var tmpl *template.Template
 
-	if tmpl, err = template.ParseFiles(path.Join(this.Path, DIR_MAIN, this.Name, LAYOUT)); err != nil {
+	if tmpl, err = template.ParseFiles(path.Join(this.Path, TEMPLATE_DIR_MAIN, this.Name, TEMPLATE_LAYOUT)); err != nil {
 		return nil, err
 	}
 
-	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, DIR_MAIN, this.Name, DIR_PARTIAL, ALL)); err != nil {
+	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, TEMPLATE_DIR_MAIN, this.Name, TEMPLATE_DIR_PARTIAL, TEMPLATE_ALL)); err != nil {
 		return nil, err
 	}
 
@@ -54,7 +57,7 @@ func (this *PageTemplate) Execute(w http.ResponseWriter, page *Page) error { // 
 		return err
 	}
 
-	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, DIR_MAIN, this.Name, DIR_VIEW, page.Name, ALL)); err != nil {
+	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, TEMPLATE_DIR_MAIN, this.Name, TEMPLATE_DIR_VIEW, page.Name, TEMPLATE_ALL)); err != nil {
 		return err
 	}
 
