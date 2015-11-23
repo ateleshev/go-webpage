@@ -28,8 +28,8 @@ type PageTemplate struct {
 	Path string
 }
 
-func NewPageTemplate(name string, path string) *PageTemplate { // {{{
-	pageTemplate := &PageTemplate{Name: name, Path: path}
+func NewPageTemplate(name string, templatePath string) *PageTemplate { // {{{
+	pageTemplate := &PageTemplate{Name: name, Path: templatePath}
 
 	return pageTemplate
 } // }}}
