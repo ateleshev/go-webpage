@@ -1,7 +1,16 @@
 package webpage
 
+import (
+	"github.com/ArtemTeleshev/go-webcontext"
+)
+
 type Page struct {
-	Name string
+	// Context
+	context *webcontext.Context
+
+	// Name of page
+	name string
+
 	// Parent page
 	Parent *Page
 
@@ -13,16 +22,30 @@ type Page struct {
 
 // [New]
 
-func NewPage(name string, parent *Page) *Page { // {{{
-	page := &Page{Name: name, Parent: parent}
+func NewPage(context *webcontext.Context, name string, parent *Page) *Page { // {{{
+	page := &Page{
+		context: context,
+		name:    name,
+		Parent:  parent,
+	}
 
 	return page
 } // }}}
 
-func NewRootPage(name string) *Page { // {{{
-	page := &Page{Name: name}
+func NewRootPage(context *webcontext.Context, name string) *Page { // {{{
+	return NewPage(context, name, nil)
+} // }}}
 
-	return page
+// [Context]
+
+func (this *Page) Context() *webcontext.Context { // {{{
+	return this.context
+} // }}}
+
+// [Name]
+
+func (this *Page) Name() string { // {{{
+	return this.name
 } // }}}
 
 // [Parent]

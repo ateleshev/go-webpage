@@ -57,7 +57,7 @@ func (this *PageTemplate) Execute(w http.ResponseWriter, page *Page) error { // 
 		return err
 	}
 
-	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, TEMPLATE_DIR_MAIN, this.Name, TEMPLATE_DIR_VIEW, page.Name, TEMPLATE_ALL)); err != nil {
+	if tmpl, err = tmpl.ParseGlob(path.Join(this.Path, TEMPLATE_DIR_MAIN, this.Name, TEMPLATE_DIR_VIEW, page.Name(), TEMPLATE_ALL)); err != nil {
 		return err
 	}
 
