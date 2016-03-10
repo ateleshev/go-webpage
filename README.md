@@ -1,13 +1,13 @@
 # go-webpage
 
 ```
-go get -u github.com/ArtemTeleshev/go-webpage
+go get -u github.com/ateleshev/go-webpage
 ```
 
 ```
 import (
-  "github.com/ArtemTeleshev/go-webpage"
-  "github.com/ArtemTeleshev/go-webcontext"
+  "github.com/ateleshev/go-webpage"
+  "github.com/ateleshev/go-webcontext"
 )
 ```
 
